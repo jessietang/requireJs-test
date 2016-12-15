@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <style>
+        .tabNav li {
+            padding:5px 10px;
+            color: #666;
+            background-color: cadetblue;
+        }
+
+        .tabNav li.active {
+            color: #fff;
+            background-color: red;
+        }
+
+        .div1 {
+            display: none;
+        }
+    </style>
+    <!--加载requirejs脚本的script标签加入了data-main属性，这个属性指定的js将在加载完
+    reuqire.js后处理，我们把require.config的配置加入到data-main后，就可以使每一个页面
+    都使用这个配置，然后页面中就可以直接使用require来加载所有的短模块名data-main还有一个
+    重要的功能，当script标签指定data-main属性时，require会默认的将data-main指定的js为
+    根路径，是什么意思呢？如上面的data-main="js/main"设定后，我们在使用require(['jquery'])
+    后(不配置jquery的paths)，require会自动加载js/jquery.js这个文件，而不是jquery.js-->
+
+
+    <!--实际上，以下面的代码为例，就算后面配置了jquery的path,如：js/lib/jquery.min ,
+     require中加入了jquery模板，require还是会这样去加载：js/lib/jquery，
+     所以如果我们在lib中只放了压缩后的jquery.min而没有放jquery，就会报错，
+     说是找不到js/lib/jquery.js. 我不知道是什么原因。
+     奇怪的是，改进写法demo2.html这个里面没有用data-main,但是像上述做法就不会出错，
+     神啊，告诉我是啥原因吧，疯了。。。-->
+    <!--<script data-main="js/lib/main" src="js/lib/require.js"></script>-->
+
+    <!--不用data-main，就可以正常加载-->
+    <script type="text/javascript" src="js/lib/require.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/test1.js"></script>
+    <script type="text/javascript" src="js/test2.js"></script>
+</head>
+<body style="height:1000px;">
+    <ul class="tabNav">
+        <li class="active">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div class="div1">aaaaaaaaaaa</div>
+    <div class="div1">bbbbbbbbbbb</div>
+    <div class="div1">ccccccccccc</div>
+
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!--<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                </div>
+                <div class="modal-body">按下 ESC 按钮退出。</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">提交更改</button>
+                </div>-->
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar"
+                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                         style="width: 90%;">
+                        <span class="sr-only">90% 完成（成功）</span>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="box" style="width:200px;height:200px;background-color: green;"></div>
+</body>
+</html>

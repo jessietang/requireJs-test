@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/demo1.js"></script>
+    <!--传统的写法会在js执行完成之后再去渲染页面。alert执行的时候，
+    html内容是一片空白的，即<p>this is just a test</p>并未被显示，
+    当点击确定后，才出现，这就是JS阻塞浏览器渲染导致的结果。-->
+</head>
+<body>
+    <p>this is just a test</p>
+</body>
+</html>
