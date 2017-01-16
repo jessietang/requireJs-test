@@ -1,0 +1,7 @@
+重新理清了一下requirejs
+
+requirejs的作用：
+（1）.实现js文件的异步加载，避免网页失去响应
+（2）.管理模块之间的依赖心，便于代码的编写和维护
+
+参考visionworks->container.tag(line 91)
